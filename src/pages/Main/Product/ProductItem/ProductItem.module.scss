@@ -2,7 +2,7 @@
 
 .product {
   box-sizing: content-box;
-  width: 200px;
+  width: 250px;
   box-shadow: -4px 0px 4px rgba(0, 0, 0, 0.1), 4px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 20px;
@@ -10,14 +10,39 @@
   flex-direction: column;
   justify-content: space-between;
 
+  & dd {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   &__image {
-    object-fit: cover;
+    object-fit: contain;
     background-color: white;
     border-radius: 10px;
   }
 
   &__title {
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 16rem;
+  }
+
+  &__info {
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -ms-line-clamp: 2;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    display: -webkit-box;
+    display: box;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
   }
 
   &__parameter {
@@ -47,7 +72,7 @@
     justify-content: space-between;
 
     & button {
-      width: 90px;
+      width: 95px;
     }
   }
 

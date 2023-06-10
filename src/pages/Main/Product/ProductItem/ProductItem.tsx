@@ -38,12 +38,13 @@ export default function ProductsItem(props: Product) {
         className={styles.product__image}
         src={thumbnail}
         alt={title}
-        width={200}
+        width={250}
         height={150}
       />
 
       <div className={styles.product__secondColumn}>
         <h3 className={styles.product__title}>{title}</h3>
+        <p className={styles.product__info}>{description}</p>
         <dl className={styles.product__parameter}>
           <dt className={styles.product__parameter__title}>Category: </dt>
           <dd>{category}</dd>

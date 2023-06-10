@@ -9,21 +9,20 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState: initialCartState,
   reducers: {
-    addProduct(state, action: PayloadAction<CartProduct>) {
+    increaseProductCount(state, action: PayloadAction<number>) {
       const isProductInCart = state.list.some(
-        (item) => item.id === action.payload.id
+        (item) => item.id === action.payload
       );
       if (isProductInCart) {
         state.list.forEach((item) => {
-          if (item.id === action.payload.id) {
+          if (item.id === action.payload) {
             item.count += 1;
           }
         });
-      } else {
-        state.list.push(action.payload);
       }
+      return;
     },
-    deleteProduct(state, action: PayloadAction<number>) {
+    decreaseProductCount(state, action: PayloadAction<number>) {
       const currentItem = state.list.find((item) => item.id === action.payload);
 
       if (!currentItem) return;
@@ -36,7 +35,6 @@ const cartSlice = createSlice({
     },
     toggleProduct(state, action: PayloadAction<CartProduct>) {
       const currentItem = state.list.find((item) => {
-        console.log(item.id);
         return item.id === action.payload.id;
       });
 
@@ -49,6 +47,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addProduct, deleteProduct, toggleProduct } = cartSlice.actions;
+export const { increaseProductCount, decreaseProductCount, toggleProduct } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;

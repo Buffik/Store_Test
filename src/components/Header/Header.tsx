@@ -6,17 +6,14 @@ import IconItem from 'src/UI/Icons/IconItem';
 import cartIcon from 'assets/icons/cart.svg';
 import { useAppSelector } from 'src/hooks/storeHooks';
 import formatPrice from 'src/utils/formatPrice';
+import { countItems, countPrice } from 'src/utils/countItems';
 
 function Header() {
   const data = useAppSelector((state) => state.cart.list);
 
-  const cartTotalItems = data.reduce((acc, item) => {
-    return (acc += item.count);
-  }, 0);
+  const cartTotalItems = countItems(data);
 
-  const fullPrice = data.reduce((acc, item) => {
-    return (acc += item.price);
-  }, 0);
+  const fullPrice = countPrice(data);
   return (
     <header className={styles.header}>
       <nav className={styles.header__navigation}>

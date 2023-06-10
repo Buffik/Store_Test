@@ -1,4 +1,4 @@
-import SiteContainer from 'src/UI/Layouts/Container/SiteContainer';
+import SiteContainer from 'src/UI/Layouts/SiteContainer/SiteContainer';
 import styles from './PageNotFound.module.scss';
 import emptyBox from 'assets/icons/empty.png';
 import { Link } from 'react-router-dom';
