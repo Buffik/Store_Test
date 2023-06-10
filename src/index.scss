@@ -17,6 +17,7 @@ body {
   font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16rem;
   line-height: 190%;
   background-color: $page-bg-color;
   box-sizing: border-box;
@@ -66,7 +67,7 @@ button {
 input[type='text'],
 select {
   border-radius: 10px;
-  font-size: 1rem;
+  font-size: 16rem;
   padding: 5px;
 }
 
@@ -93,11 +94,11 @@ code {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 20rem;
   margin: 20px 0;
 }
 
 h3 {
-  font-size: 1.8rem;
+  font-size: 18rem;
   margin: 10px 0;
 }

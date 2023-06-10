@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import logo from 'assets/logo/logo.png';
 
 import styles from './Logo.module.scss';
@@ -7,7 +6,7 @@ import IconItem from '../Icons/IconItem';
 
 function Logo() {
   return (
-    <Link className={styles.logo__wrapper} to="/">
+    <div className={styles.logo__wrapper}>
       <IconItem
         propClasses={styles.logo__icon}
         linkToIcon={logo}
@@ -16,7 +15,7 @@ function Logo() {
       <TextItem className={styles.logo__title} as="h1">
         online store
       </TextItem>
-    </Link>
+    </div>
   );
 }
 

@@ -1,0 +1,81 @@
+@import '../../../../styles/variables';
+
+.product {
+  box-sizing: content-box;
+  width: 200px;
+  box-shadow: -4px 0px 4px rgba(0, 0, 0, 0.1), 4px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__image {
+    object-fit: cover;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  &__title {
+    font-size: 16rem;
+  }
+
+  &__parameter {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14rem;
+    &__title {
+      color: $unimportant-color;
+    }
+
+    &_price {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      font-size: 20rem;
+
+      &__title {
+        color: $unimportant-color;
+        font-size: 14rem;
+      }
+    }
+  }
+
+  &__buttonsContainer {
+    display: flex;
+    justify-content: space-between;
+
+    & button {
+      width: 90px;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 9.5px 10px;
+    width: 70px;
+    background-color: $accent-color;
+    border-radius: 10px;
+    color: white;
+    font-size: 14rem;
+    text-decoration: none;
+    align-items: center;
+    transition: background-color 0.4s;
+
+    &:hover {
+      background-color: $accent-hover-color;
+    }
+
+    &:focus {
+      outline-color: $primary-font-color;
+    }
+  }
+
+  &__parameter_price {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    font-size: 20rem;
+  }
+}

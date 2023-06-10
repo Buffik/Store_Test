@@ -4,8 +4,19 @@ import TextItem from 'src/UI/TextItem/TextItem';
 import Logo from 'src/UI/Logo/Logo';
 import IconItem from 'src/UI/Icons/IconItem';
 import cartIcon from 'assets/icons/cart.svg';
+import { useAppSelector } from 'src/hooks/storeHooks';
+import formatPrice from 'src/utils/formatPrice';
 
 function Header() {
+  const data = useAppSelector((state) => state.cart.list);
+
+  const cartTotalItems = data.reduce((acc, item) => {
+    return (acc += item.count);
+  }, 0);
+
+  const fullPrice = data.reduce((acc, item) => {
+    return (acc += item.price);
+  }, 0);
   return (
     <header className={styles.header}>
       <nav className={styles.header__navigation}>
@@ -14,15 +25,15 @@ function Header() {
         </Link>
 
         <p className={styles.header__navigation__total}>
-          {'Cart total: 0'}
+          {'Cart total: '}
           <span className={styles.header__navigation__total__price}>
-            {/* {cartTotalItems ? formatPrice(cartTotalItems) : '...'} */}
+            {cartTotalItems ? formatPrice(fullPrice) : '...'}
           </span>
         </p>
         <Link className={styles.header__navigation__cart} to="/cart">
           <IconItem linkToIcon={cartIcon} alt={'Cart'} />
           <TextItem className={styles.header__navigation__cart__items} as="p">
-            1
+            {cartTotalItems}
           </TextItem>
         </Link>
       </nav>

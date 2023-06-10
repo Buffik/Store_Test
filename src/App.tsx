@@ -4,18 +4,23 @@ import Footer from 'components/Footer/Footer';
 import Cart from 'pages/Cart/Cart';
 import Main from 'pages/Main/Main';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
+import Order from './pages/Order/Order';
+import styles from './App.module.scss';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <div className={styles.container}>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 }
 

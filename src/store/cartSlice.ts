@@ -31,12 +31,24 @@ const cartSlice = createSlice({
       if (currentItem && currentItem.count > 1) {
         currentItem.count -= 1;
       } else {
-        state.list.filter((item) => item.id !== action.payload);
+        state.list = state.list.filter((item) => item.id !== action.payload);
+      }
+    },
+    toggleProduct(state, action: PayloadAction<CartProduct>) {
+      const currentItem = state.list.find((item) => {
+        console.log(item.id);
+        return item.id === action.payload.id;
+      });
+
+      if (!currentItem) {
+        state.list.push(action.payload);
+      } else {
+        state.list = state.list.filter((item) => item.id !== action.payload.id);
       }
     },
   },
 });
 
-export const { addProduct, deleteProduct } = cartSlice.actions;
+export const { addProduct, deleteProduct, toggleProduct } = cartSlice.actions;
 
 export default cartSlice.reducer;

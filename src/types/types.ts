@@ -11,8 +11,15 @@ export type Product = {
   thumbnail: string;
 };
 
+export type Response = {
+  limit: number;
+  products: Product[];
+  skip: number;
+  total: number;
+};
+
 export type ProductState = {
-  list: Product[];
+  list: Response;
   status: 'loading' | 'fulfilled' | 'rejected';
   error: null | string;
 };
