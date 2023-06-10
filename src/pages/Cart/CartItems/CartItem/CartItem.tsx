@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './CartItem.module.scss';
 import { CartProduct } from 'src/types/types';
 import { useDispatch } from 'react-redux';
@@ -7,6 +6,8 @@ import {
   increaseProductCount,
 } from 'src/store/cartSlice';
 import formatPrice from 'src/utils/formatPrice';
+import TextItem from 'src/UI/TextItem/TextItem';
+import Button from 'src/UI/Button/Button';
 
 type CartProductTypes = CartProduct & { productIndex: number };
 
@@ -29,57 +30,74 @@ function CartItem(props: CartProductTypes) {
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.cardProduct}>
-      <div className={styles.productIndex}>{productIndex}</div>
-      <div className={styles.dataLinkWrapper}>
-        <img className={styles.infoImg} src={thumbnail} alt={title} />
-        <div className={styles.infoWrapper}>
-          <h3 className={styles.infoHeader}>{title}</h3>
+    <div className={styles.product}>
+      <div className={styles.product__index}>{productIndex}</div>
+      <div className={styles.info}>
+        <img className={styles.info__img} src={thumbnail} alt={title} />
+        <div className={styles.info__wrapper}>
+          <TextItem as="h3" className={styles.info__header}>
+            {title}
+          </TextItem>
           <hr />
-          <p className={styles.textAbout}>{description}</p>
-          <div className={styles.subtitlesWrapper}>
-            <div className={styles.subtitlesWrapperFirstLine}>
+          <TextItem as="p" className={styles.info__description}>
+            {description}
+          </TextItem>
+          <div className={styles.info_subtitles}>
+            <div className={styles.info_subtitles__row}>
               <div>
-                <span className={styles.infoHeaders}>Category:</span>{' '}
-                <span>{category}</span>
+                <TextItem as="span" className={styles.info_subtitles__header}>
+                  Category:
+                </TextItem>{' '}
+                <TextItem as="span">{category}</TextItem>
               </div>
               <div>
-                <span className={styles.infoHeaders}>Brand:</span>{' '}
-                <span>{brand}</span>
+                <TextItem as="span" className={styles.info_subtitles__header}>
+                  Brand:
+                </TextItem>{' '}
+                <TextItem as="span">{brand}</TextItem>
               </div>
             </div>
-            <div className={styles.subtitlesWrapperSecondLine}>
+            <div className={styles.info_subtitles__row}>
               <div>
-                <span className={styles.infoHeaders}>Rating:</span>{' '}
-                <span>{rating}</span>
+                <TextItem as="span" className={styles.info_subtitles__header}>
+                  Rating:
+                </TextItem>{' '}
+                <TextItem as="span">{rating}</TextItem>
               </div>
               <div>
-                <span className={styles.infoHeaders}>Discount:</span>{' '}
-                <span>{discountPercentage}%</span>
+                <TextItem as="span" className={styles.info_subtitles__header}>
+                  Discount:
+                </TextItem>{' '}
+                <TextItem as="span">{discountPercentage + '%'}</TextItem>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className={styles.buttonsWrapper}>
-        <div className={styles.textStock}>
-          {'Available stock: '}
-          {stock}
-        </div>
-        <button
-          className={styles.cart__button}
+      <div className={styles.product__buttons}>
+        <TextItem className={styles.product__textStock}>
+          <>
+            {'Available stock: '}
+            {stock}
+          </>
+        </TextItem>
+        <Button
+          disabled={count >= stock}
+          className={styles.product__button}
           onClick={() => dispatch(increaseProductCount(id))}
         >
           +
-        </button>
-        <div className={styles.textCount}>{count}</div>
-        <button
-          className={styles.cart__button}
+        </Button>
+        <TextItem className={styles.product__textCount}>{count}</TextItem>
+        <Button
+          className={styles.product__button}
           onClick={() => dispatch(decreaseProductCount(id))}
         >
-          {count === 1 ? 'Drop from cart' : '-'}
-        </button>
-        <div className={styles.textPrice}>{formatPrice(price * count)}</div>
+          {count === 1 ? 'Drop' : '-'}
+        </Button>
+        <TextItem className={styles.product__textPrice}>
+          {formatPrice(price * count)}
+        </TextItem>
       </div>
     </div>
   );

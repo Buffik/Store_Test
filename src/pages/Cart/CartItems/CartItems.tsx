@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './CartItems.module.scss';
 import { useAppSelector } from 'src/hooks/storeHooks';
 import CartItem from './CartItem/CartItem';

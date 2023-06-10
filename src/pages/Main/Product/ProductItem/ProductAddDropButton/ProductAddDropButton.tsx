@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from './ProductAddDropButton.module.scss';
 import Button from 'src/UI/Button/Button';
 

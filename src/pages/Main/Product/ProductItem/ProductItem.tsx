@@ -6,6 +6,7 @@ import Button from 'src/UI/Button/Button';
 import ProductAddDropButton from './ProductAddDropButton/ProductAddDropButton';
 import { useAppDispatch, useAppSelector } from 'src/hooks/storeHooks';
 import { toggleProduct } from 'src/store/cartSlice';
+import TextItem from 'src/UI/TextItem/TextItem';
 
 export default function ProductsItem(props: Product) {
   const {
@@ -43,34 +44,65 @@ export default function ProductsItem(props: Product) {
       />
 
       <div className={styles.product__secondColumn}>
-        <h3 className={styles.product__title}>{title}</h3>
-        <p className={styles.product__info}>{description}</p>
-        <dl className={styles.product__parameter}>
-          <dt className={styles.product__parameter__title}>Category: </dt>
-          <dd>{category}</dd>
-        </dl>
-        <dl className={styles.product__parameter}>
-          <dt className={styles.product__parameter__title}>Brand: </dt>
-          <dd>{brand}</dd>
-        </dl>
-        <dl className={styles.product__parameter}>
-          <dt className={styles.product__parameter__title}>Discount: </dt>
-          <dd>{discountPercentage}%</dd>
-        </dl>
-        <dl className={styles.product__parameter}>
-          <dt className={styles.product__parameter__title}>Rating: </dt>
-          <dd>{rating}</dd>
-        </dl>
-        <dl className={styles.product__parameter}>
-          <dt className={styles.product__parameter__title}>Stock: </dt>
-          <dd>{stock}</dd>
-        </dl>
+        <TextItem as="h3" className={styles.product__title}>
+          {title}
+        </TextItem>
+        <TextItem as="p" className={styles.product__info}>
+          {description}
+        </TextItem>
+        <TextItem as="dl" className={styles.product__parameter}>
+          <>
+            <TextItem as="dt" className={styles.product__parameter__title}>
+              {'Category: '}
+            </TextItem>
+            <TextItem as="dd">{category}</TextItem>
+          </>
+        </TextItem>
+        <TextItem as="dl" className={styles.product__parameter}>
+          <>
+            <TextItem as="dt" className={styles.product__parameter__title}>
+              {'Brand: '}
+            </TextItem>
+            <TextItem as="dd">{brand}</TextItem>
+          </>
+        </TextItem>
+        <TextItem as="dl" className={styles.product__parameter}>
+          <>
+            <TextItem as="dt" className={styles.product__parameter__title}>
+              {'Discount: '}
+            </TextItem>
+            <TextItem as="dd">{discountPercentage + '%'}</TextItem>
+          </>
+        </TextItem>
+        <TextItem as="dl" className={styles.product__parameter}>
+          <>
+            <TextItem as="dt" className={styles.product__parameter__title}>
+              {'Rating: '}
+            </TextItem>
+            <TextItem as="dd">{rating}</TextItem>
+          </>
+        </TextItem>
+        <TextItem as="dl" className={styles.product__parameter}>
+          <>
+            <TextItem as="dt" className={styles.product__parameter__title}>
+              {'Stock: '}
+            </TextItem>
+            <TextItem as="dd">{stock}</TextItem>
+          </>
+        </TextItem>
       </div>
       <div className={styles.product__thirdColumn}>
-        <dl className={styles.product__parameter_price}>
-          <dt className={styles.product__parameter_price__title}>Price: </dt>
-          <dd>{formatPrice(price)}</dd>
-        </dl>
+        <TextItem as="dl" className={styles.product__parameter_price}>
+          <>
+            <TextItem
+              as="dt"
+              className={styles.product__parameter_price__title}
+            >
+              {'Price: '}
+            </TextItem>
+            <TextItem as="dd">{formatPrice(price)}</TextItem>
+          </>
+        </TextItem>
         <div className={styles.product__buttonsContainer}>
           <ProductAddDropButton isInCart={isInCart} handleClick={handleClick} />
           <Button className={styles.product__link}>Buy now</Button>

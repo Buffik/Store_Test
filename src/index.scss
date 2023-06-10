@@ -58,6 +58,7 @@ button {
   color: white;
   cursor: pointer;
   transition: all 0.4s;
+  user-select: none;
 
   &:hover {
     background-color: $accent-hover-color;
@@ -74,18 +75,6 @@ select {
 input[type='text'] {
   border: 1px solid $unimportant-color;
   padding: 9.5px 15px;
-}
-
-a:focus,
-button:focus,
-input[type='text']:focus,
-select:focus,
-option:focus {
-  outline: 1px solid $accent-color;
-}
-
-button:focus {
-  outline-color: $primary-font-color;
 }
 
 code {

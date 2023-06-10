@@ -1,8 +1,9 @@
-import React from 'react';
 import styles from './SideBar.module.scss';
 import { useAppSelector } from 'src/hooks/storeHooks';
 import formatPrice from 'src/utils/formatPrice';
 import { countItems, countPrice } from 'src/utils/countItems';
+import TextItem from 'src/UI/TextItem/TextItem';
+import Button from 'src/UI/Button/Button';
 
 function SideBar() {
   const data = useAppSelector((state) => state.cart.list);
@@ -12,24 +13,31 @@ function SideBar() {
   const fullPrice = countPrice(data);
 
   return (
-    <div className={styles.container}>
-      <h2>Summary</h2>
-      <div className={styles.textSummary}>
-        <span className={styles.textProducts}>Products:</span> {cartTotalItems}
-      </div>
-      <div className={styles.textSummaryLineThrough}>
-        <span className={styles.textTotal}>Total: </span>
-        {formatPrice(fullPrice)}
-      </div>
+    <div className={styles.summary}>
+      <TextItem as="h2">Summary</TextItem>
+      <TextItem className={styles.summary__text}>
+        <>
+          <TextItem as="span" className={styles.summary__text_subtitle}>
+            Products:
+          </TextItem>{' '}
+          {cartTotalItems}
+        </>
+      </TextItem>
+      <TextItem className={styles.summary__text}>
+        <>
+          <TextItem as="span" className={styles.summary__text_subtitle}>
+            {'Total: '}
+          </TextItem>
+          {formatPrice(fullPrice)}
+        </>
+      </TextItem>
 
-      <button
-        className={styles.byuButton}
-        type="button"
+      <Button
+        className={styles.summary__button}
         onClick={() => console.log('boo')}
       >
-        {' '}
         BUY NOW
-      </button>
+      </Button>
     </div>
   );
 }

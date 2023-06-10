@@ -21,12 +21,17 @@ function Header() {
           <Logo />
         </Link>
 
-        <p className={styles.header__navigation__total}>
-          {'Cart total: '}
-          <span className={styles.header__navigation__total__price}>
-            {cartTotalItems ? formatPrice(fullPrice) : '...'}
-          </span>
-        </p>
+        <TextItem as="p" className={styles.header__navigation__total}>
+          <>
+            {'Cart total: '}
+            <TextItem
+              as="span"
+              className={styles.header__navigation__total__price}
+            >
+              {cartTotalItems ? formatPrice(fullPrice) : '...'}
+            </TextItem>
+          </>
+        </TextItem>
         <Link className={styles.header__navigation__cart} to="/cart">
           <IconItem linkToIcon={cartIcon} alt={'Cart'} />
           <TextItem className={styles.header__navigation__cart__items} as="p">
