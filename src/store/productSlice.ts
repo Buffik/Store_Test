@@ -20,7 +20,7 @@ export const fetchProducts = createAsyncThunk<
   const response = await fetch('https://dummyjson.com/products?limit=20');
 
   if (!response.ok) {
-    return rejectWithValue('Server Error!');
+    return rejectWithValue(`Server rejected with ${response.statusText}`);
   }
 
   const data = await response.json();

@@ -16,3 +16,11 @@ export type ProductState = {
   status: 'loading' | 'fulfilled' | 'rejected';
   error: null | string;
 };
+
+export type CartProduct = Product & {
+  count: number;
+};
+
+export type CartState = {
+  list: CartProduct[];
+};
