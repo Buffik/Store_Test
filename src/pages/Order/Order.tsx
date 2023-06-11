@@ -4,20 +4,17 @@ import styles from './Order.module.scss';
 import CartContainer from 'src/UI/Layouts/CartContainer/CartContainer';
 import TextItem from 'src/UI/TextItem/TextItem';
 import BreadCrumbs from './BreadCrumbs/BreadCrumbs';
-
-type PersonalData = {
-  name: string;
-  phone: string;
-  mail: string;
-  creditCardNumber: string;
-  creditCardDate: string;
-  creditCardOwner: string;
-  location: string;
-};
+import { useAppSelector } from 'src/hooks/storeHooks';
+import { countPrice } from 'src/utils/countItems';
+import formatPrice from 'src/utils/formatPrice';
+import { PersonalDataTypes } from 'types/types';
+import PurchaseInfo from './PurchaseInfo/PurchaseInfo';
+import PersonalData from './PersonalData/PersonalData';
+import LocationData from './Location/LocationData';
 
 function Order() {
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<PersonalDataTypes>({
     name: '',
     phone: '',
     mail: '',
@@ -27,12 +24,28 @@ function Order() {
     location: '',
   });
 
+  const cartData = useAppSelector((state) => state.cart.list);
+  const fullPrice = countPrice(cartData);
+
   return (
     <CartContainer>
       <TextItem as="h2" className={styles.header}>
-        Order
+        <>{`Order ${formatPrice(fullPrice)}`}</>
       </TextItem>
-      <BreadCrumbs step={step} setStep={setStep} />
+      <BreadCrumbs step={step} setStep={setStep} formData={formData} />
+      {step > 1 ? (
+        step > 2 ? (
+          <LocationData />
+        ) : (
+          <PurchaseInfo />
+        )
+      ) : (
+        <PersonalData
+          formData={formData}
+          setFormData={setFormData}
+          setStep={setStep}
+        />
+      )}
     </CartContainer>
   );
 }

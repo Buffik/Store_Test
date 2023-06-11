@@ -76,5 +76,23 @@
         border-left: 16rem solid $accent-color;
       }
     }
+
+    &:disabled {
+      color: $unimportant-bg-color;
+      background-color: $unimportant-color;
+      &:hover {
+        cursor: not-allowed;
+        color: $unimportant-bg-color;
+        background-color: $unimportant-color;
+        &::before {
+          border-color: $unimportant-color $unimportant-color $unimportant-color
+            transparent;
+        }
+
+        &::after {
+          border-left: 16rem solid $unimportant-color;
+        }
+      }
+    }
   }
 }

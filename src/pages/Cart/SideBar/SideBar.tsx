@@ -4,6 +4,7 @@ import formatPrice from 'src/utils/formatPrice';
 import { countItems, countPrice } from 'src/utils/countItems';
 import TextItem from 'src/UI/TextItem/TextItem';
 import Button from 'src/UI/Button/Button';
+import { Link } from 'react-router-dom';
 
 function SideBar() {
   const data = useAppSelector((state) => state.cart.list);
@@ -32,12 +33,9 @@ function SideBar() {
         </>
       </TextItem>
 
-      <Button
-        className={styles.summary__button}
-        onClick={() => console.log('boo')}
-      >
+      <Link to="/order" className={styles.summary__button}>
         BUY NOW
-      </Button>
+      </Link>
     </div>
   );
 }

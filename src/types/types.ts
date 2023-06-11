@@ -31,3 +31,13 @@ export type CartProduct = Product & {
 export type CartState = {
   list: CartProduct[];
 };
+
+export type PersonalDataTypes = {
+  name: string;
+  phone: string;
+  mail: string;
+  creditCardNumber: string;
+  creditCardDate: string;
+  creditCardOwner: string;
+  location: string;
+};
