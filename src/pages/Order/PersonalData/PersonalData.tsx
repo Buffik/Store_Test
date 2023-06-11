@@ -108,6 +108,7 @@ function PersonalData({ formData, setFormData, setStep }: PropTypes) {
         </TextItem>
         <input
           type="submit"
+          value={'Next'}
           className={styles.personalData__submitButton}
           disabled={!isValid}
         />
