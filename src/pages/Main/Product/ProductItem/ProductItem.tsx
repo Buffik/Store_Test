@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './ProductItem.module.scss';
 import { Product } from 'src/types/types';
 import formatPrice from 'src/utils/formatPrice';
@@ -7,6 +6,7 @@ import ProductAddDropButton from './ProductAddDropButton/ProductAddDropButton';
 import { useAppDispatch, useAppSelector } from 'src/hooks/storeHooks';
 import { toggleProduct } from 'src/store/cartSlice';
 import TextItem from 'src/UI/TextItem/TextItem';
+import { Link } from 'react-router-dom';
 
 export default function ProductsItem(props: Product) {
   const {
@@ -105,7 +105,9 @@ export default function ProductsItem(props: Product) {
         </TextItem>
         <div className={styles.product__buttonsContainer}>
           <ProductAddDropButton isInCart={isInCart} handleClick={handleClick} />
-          <Button className={styles.product__link}>Buy now</Button>
+          <Link to="/order" className={styles.product__link}>
+            Buy now
+          </Link>
         </div>
       </div>
     </section>

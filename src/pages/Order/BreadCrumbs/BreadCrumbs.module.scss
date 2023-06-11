@@ -1,0 +1,80 @@
+@import '../../../styles/variables';
+
+.breadCrumbs {
+  display: flex;
+
+  &__text {
+    font-size: 16rem;
+    border-radius: 0;
+    margin-right: 25px;
+    background: $unimportant-color;
+    padding: 10rem 16rem;
+    float: left;
+    text-decoration: none;
+    color: $primary-font-color;
+    position: relative;
+    transition: 0s;
+    &:hover {
+      background: $accent-color;
+      color: $page-bg-color;
+
+      &::before {
+        border-color: $accent-color $accent-color $accent-color transparent;
+      }
+
+      &::after {
+        border-left-color: $accent-color;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      margin-top: -19rem;
+      border-width: 19rem 0 19rem 16rem;
+      border-style: solid;
+      border-color: $unimportant-color $unimportant-color $unimportant-color
+        transparent;
+      left: -1em;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      margin-top: -19rem;
+      border-top: 19rem solid transparent;
+      border-bottom: 19rem solid transparent;
+      border-left: 16rem solid $unimportant-color;
+      right: -16rem;
+    }
+
+    &_active {
+      background: $accent-color;
+      color: $page-bg-color;
+
+      &:hover {
+        background: $accent-hover-color;
+        color: $page-bg-color;
+
+        &::before {
+          border-color: $accent-hover-color $accent-hover-color
+            $accent-hover-color transparent;
+        }
+
+        &::after {
+          border-left-color: $accent-hover-color;
+        }
+      }
+
+      &::before {
+        border-color: $accent-color $accent-color $accent-color transparent;
+      }
+
+      &::after {
+        border-left: 16rem solid $accent-color;
+      }
+    }
+  }
+}
