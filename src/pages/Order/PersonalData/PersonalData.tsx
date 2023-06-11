@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import styles from './PersonalData.module.scss';
@@ -40,7 +39,9 @@ function PersonalData({ formData, setFormData, setStep }: PropTypes) {
       userPhone: formData.phone,
       userMail: formData.mail,
     },
+    mode: 'onBlur',
   });
+
   return (
     <div className={styles.personalData}>
       <TextItem className={styles.personalData__title}>Personal data</TextItem>

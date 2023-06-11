@@ -39,5 +39,6 @@ export type PersonalDataTypes = {
   creditCardNumber: string;
   creditCardDate: string;
   creditCardOwner: string;
+  cvv: string;
   location: string;
 };

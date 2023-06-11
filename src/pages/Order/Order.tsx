@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import styles from './Order.module.scss';
 import CartContainer from 'src/UI/Layouts/CartContainer/CartContainer';
@@ -21,6 +21,7 @@ function Order() {
     creditCardNumber: '',
     creditCardDate: '',
     creditCardOwner: '',
+    cvv: '',
     location: '',
   });
 
@@ -37,7 +38,11 @@ function Order() {
         step > 2 ? (
           <LocationData />
         ) : (
-          <PurchaseInfo />
+          <PurchaseInfo
+            formData={formData}
+            setFormData={setFormData}
+            setStep={setStep}
+          />
         )
       ) : (
         <PersonalData
