@@ -105,7 +105,13 @@ export default function ProductsItem(props: Product) {
         </TextItem>
         <div className={styles.product__buttonsContainer}>
           <ProductAddDropButton isInCart={isInCart} handleClick={handleClick} />
-          <Link to="/order" className={styles.product__link}>
+          <Link
+            to="/order"
+            className={styles.product__link}
+            onClick={() => {
+              if (!isInCart) handleClick();
+            }}
+          >
             Buy now
           </Link>
         </div>
