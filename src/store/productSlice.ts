@@ -4,16 +4,21 @@ import {
   createAsyncThunk,
   AnyAction,
 } from '@reduxjs/toolkit';
-import { Product, ProductState } from 'src/types/types';
+import { Response, ProductState } from 'src/types/types';
 
 const initialState: ProductState = {
-  list: [],
+  list: {
+    limit: 20,
+    products: [],
+    total: 100,
+    skip: 0,
+  },
   status: 'loading',
   error: null,
 };
 
 export const fetchProducts = createAsyncThunk<
-  Product[],
+  Response,
   undefined,
   { rejectValue: string }
 >('product/fetchProducts', async function (_, { rejectWithValue }) {
@@ -23,7 +28,7 @@ export const fetchProducts = createAsyncThunk<
     return rejectWithValue(`Server rejected with ${response.statusText}`);
   }
 
-  const data = await response.json();
+  const data = (await response.json()) as Response;
 
   return data;
 });

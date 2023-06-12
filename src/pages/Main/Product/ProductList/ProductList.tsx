@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './ProductList.module.scss';
 import { useAppSelector } from 'src/hooks/storeHooks';
 import ProductItem from '../ProductItem/ProductItem';

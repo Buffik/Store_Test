@@ -3,7 +3,6 @@ import { useAppSelector } from 'src/hooks/storeHooks';
 import formatPrice from 'src/utils/formatPrice';
 import { countItems, countPrice } from 'src/utils/countItems';
 import TextItem from 'src/UI/TextItem/TextItem';
-import Button from 'src/UI/Button/Button';
 import { Link } from 'react-router-dom';
 
 function SideBar() {

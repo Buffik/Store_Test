@@ -7,9 +7,6 @@ import PageNotFound from 'pages/PageNotFound/PageNotFound';
 import Order from './pages/Order/Order';
 import styles from './App.module.scss';
 
-//todo: доделать форму отправки заказа: очистить стейт, редиректнуть на главную страницу
-//todo: типизировать страницу с локацией
-
 function App() {
   return (
     <div className={styles.container}>
