@@ -1,7 +1,6 @@
 import styles from './ProductItem.module.scss';
 import { Product } from 'src/types/types';
 import formatPrice from 'src/utils/formatPrice';
-import Button from 'src/UI/Button/Button';
 import ProductAddDropButton from './ProductAddDropButton/ProductAddDropButton';
 import { useAppDispatch, useAppSelector } from 'src/hooks/storeHooks';
 import { toggleProduct } from 'src/store/cartSlice';

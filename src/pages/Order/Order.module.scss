@@ -3,3 +3,34 @@
 .header {
   margin: 10px 0;
 }
+
+.empty {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__img {
+    width: 140px;
+    transform: translateX(-12px);
+  }
+
+  &__title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 20rem;
+    color: var(--accent-color);
+  }
+
+  &__link {
+    color: $accent-color;
+
+    &:hover {
+      cursor: pointer;
+      color: $accent-active-color;
+      transition: 0.3s ease;
+    }
+  }
+}
