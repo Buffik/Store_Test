@@ -12,6 +12,8 @@
 - Redux ToolKit
 - Redux Persist
 
+- Yandex Maps API
+
 - React Hook Form
 - Sass
 - ClassNames
