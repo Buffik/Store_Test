@@ -33,6 +33,7 @@ function PersonalData({ formData, setFormData, setStep }: PropTypes) {
     register,
     formState: { errors, isValid },
     handleSubmit,
+    setValue,
   } = useForm<FormValues>({
     defaultValues: {
       userName: formData.name,
@@ -58,6 +59,12 @@ function PersonalData({ formData, setFormData, setStep }: PropTypes) {
               minLength: {
                 value: 5,
                 message: 'At least 5 chars required',
+              },
+              onChange: (e) => {
+                setValue(
+                  'userName',
+                  e.target.value.replace(/[^А-яЁё A-Za-z]/g, '')
+                );
               },
             })}
           />

@@ -103,6 +103,12 @@ function PurchaseInfo({ formData, setFormData, setStep }: PropTypes) {
                   value: 5,
                   message: 'Invalid card holder',
                 },
+                onChange: (e) => {
+                  setValue(
+                    'cardHolder',
+                    e.target.value.replace(/[^A-Za-z ]/g, '')
+                  );
+                },
               })}
             />
           </label>
@@ -179,7 +185,7 @@ function PurchaseInfo({ formData, setFormData, setStep }: PropTypes) {
               CVV:
               <input
                 className={styles.cardData__input_min}
-                type="number"
+                type="password"
                 {...register('creditCardCVV', {
                   required: 'Required field',
                   minLength: {
