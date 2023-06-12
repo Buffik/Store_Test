@@ -1,0 +1,9 @@
+@import '../../../styles/variables';
+
+.title {
+  color: $accent-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}

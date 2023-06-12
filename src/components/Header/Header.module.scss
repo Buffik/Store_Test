@@ -1,0 +1,49 @@
+@import '../../styles/variables';
+
+.header {
+  padding: 30rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1rem solid $accent-color;
+
+  &__navigation {
+    width: 80%;
+    max-width: 1000rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__total {
+      font-size: 19rem;
+      color: $unimportant-color;
+
+      &__price {
+        color: $accent-color;
+        font-size: 19rem;
+      }
+    }
+
+    &__cart {
+      position: relative;
+
+      &:hover .header__navigation__cart__items {
+        background-color: $accent-hover-color;
+      }
+
+      &__items {
+        position: absolute;
+        top: -5rem;
+        left: 15rem;
+        padding: 3rem 5rem 1rem;
+        font-size: 13rem;
+        line-height: 13rem;
+        text-align: center;
+        background-color: $accent-color;
+        border-radius: 50%;
+        color: #ffffff;
+        transition: all 0.4s;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import 'styles/variables';
+
+.logo {
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    font-size: 1.2rem;
+    gap: 5px;
+    text-decoration: none;
+    &:hover > .logo__title {
+      color: $accent-hover-color;
+      transition: all 0.4s;
+    }
+  }
+  &__icon {
+    width: 30px;
+    height: 30px;
+  }
+  &__title {
+    color: $accent-color;
+    font-size: 19rem;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,113 @@
+@import 'styles/variables';
+
+* {
+  color: $primary-font-color;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1px;
+}
+
+body {
+  margin: 0;
+  // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  //   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  //   sans-serif;
+  font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16rem;
+  line-height: 190%;
+  background-color: $page-bg-color;
+  box-sizing: border-box;
+}
+
+p,
+ul,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input {
+  font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
+  font-size: 1rem;
+}
+
+button,
+input[type='submit'] {
+  padding: 9.5px 30px;
+  background-color: $accent-color;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.4s;
+  user-select: none;
+
+  &:hover {
+    background-color: $accent-hover-color;
+  }
+}
+
+input[type='text'],
+input[type='number'],
+input[type='mail'],
+input[type='password'],
+select {
+  border-radius: 10px;
+  font-size: 16rem;
+  padding: 5px;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='mail'],
+input[type='password'] {
+  border: 1px solid $unimportant-color;
+  padding: 9.5px 15px;
+  text-align: center;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none; // Yeah, yeah everybody write about it
+}
+
+input[type='number'],
+input[type='number']:hover,
+input[type='number']:focus {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h2 {
+  font-size: 20rem;
+  margin: 20px 0;
+}
+
+h3 {
+  font-size: 18rem;
+  margin: 10px 0;
+}

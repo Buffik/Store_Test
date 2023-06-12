@@ -1,0 +1,44 @@
+@import '../../styles/variables';
+
+.footer {
+  padding: 35px 0;
+  width: 100%;
+  background-color: $footer-bg-color;
+  display: flex;
+  justify-content: center;
+}
+
+.footer p {
+  color: $unimportant-color;
+}
+
+.container {
+  width: 80%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linksContainer {
+  display: flex;
+  align-items: center;
+}
+
+.footer__link {
+  color: $primary-font-color;
+  text-decoration: none;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  &::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-image: url('../../assets/icons/github-mark.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}

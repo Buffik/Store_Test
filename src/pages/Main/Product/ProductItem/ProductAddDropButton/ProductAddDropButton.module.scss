@@ -1,0 +1,22 @@
+@import '../../../../../styles/variables';
+
+.button {
+  width: 140px;
+  padding: 7.5px 9px;
+  font-size: 14rem;
+  border: 1px solid $accent-color;
+}
+
+.button_drop {
+  background-color: transparent;
+  color: $accent-color;
+
+  &:hover {
+    background-color: $accent-color;
+    color: white;
+  }
+
+  &:focus {
+    outline-color: $accent-color;
+  }
+}

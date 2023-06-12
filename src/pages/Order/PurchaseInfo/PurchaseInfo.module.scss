@@ -1,0 +1,90 @@
+@import '../../../styles/variables';
+
+.cardData {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__formWrapper {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: -4px 0px 4px rgba(0, 0, 0, 0.1), 4px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &__title {
+    text-align: center;
+    margin: 20px 0 10px 0;
+    font-weight: 700;
+    color: $accent-color;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: $primary-font-color;
+
+    &_cvv {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      color: $primary-font-color;
+      transform: translateX(40px);
+    }
+  }
+
+  &__input {
+    text-align: center;
+
+    &_min {
+      max-width: 60px;
+    }
+  }
+
+  &__errorMessage {
+    height: 20px;
+    margin: 0px auto 20px auto;
+    text-align: center;
+    color: $error-color;
+
+    &_cvv {
+      height: 20px;
+      margin: 0px auto 20px auto;
+      text-align: center;
+      color: $error-color;
+      transform: translateX(30px);
+    }
+  }
+
+  &__submitButton {
+    display: block;
+    font-size: 16rem;
+    margin: 0 auto;
+
+    &:disabled {
+      color: $unimportant-bg-color;
+      background-color: $unimportant-color;
+      &:hover {
+        cursor: not-allowed;
+        color: $unimportant-bg-color;
+        background-color: $unimportant-color;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    &_2 {
+      width: 50%;
+    }
+  }
+}

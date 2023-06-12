@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+
+.main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-size: 20rem;
+    color: $accent-color;
+  }
+
+  &__text {
+    margin-bottom: 10px;
+  }
+}

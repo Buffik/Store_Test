@@ -1,0 +1,52 @@
+@import '../../../styles/variables';
+
+.personalData {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__title {
+    text-align: center;
+    margin: 20px 0 10px 0;
+    font-weight: 700;
+    color: $accent-color;
+  }
+
+  &__formWrapper {
+    margin-left: -45px;
+    margin-right: 36px;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: $primary-font-color;
+  }
+
+  &__errorMessage {
+    height: 20px;
+    margin: 0px auto 20px auto;
+    text-align: center;
+    color: $error-color;
+  }
+
+  &__submitButton {
+    display: block;
+    font-size: 16rem;
+    margin: 0px 78px 0 auto;
+
+    &:disabled {
+      color: $unimportant-bg-color;
+      background-color: $unimportant-color;
+      &:hover {
+        cursor: not-allowed;
+        color: $unimportant-bg-color;
+        background-color: $unimportant-color;
+      }
+    }
+  }
+}
