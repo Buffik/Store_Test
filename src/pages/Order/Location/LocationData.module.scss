@@ -43,5 +43,14 @@
     font-size: 20px;
     max-width: 250px;
     margin: 0 auto;
+    &:disabled {
+      color: $unimportant-bg-color;
+      background-color: $unimportant-color;
+      &:hover {
+        cursor: not-allowed;
+        color: $unimportant-bg-color;
+        background-color: $unimportant-color;
+      }
+    }
   }
 }

@@ -13,6 +13,7 @@ import LocationData from './Location/LocationData';
 import SiteContainer from 'src/UI/Layouts/SiteContainer/SiteContainer';
 import emptyCartImg from 'assets/icons/emptyCart.svg';
 import styles from './Order.module.scss';
+import SuccessPurchase from './SuccessPurchase/SuccessPurchase';
 
 function Order() {
   const [step, setStep] = useState(1);
@@ -30,7 +31,7 @@ function Order() {
   const cartData = useAppSelector((state) => state.cart.list);
   const fullPrice = countPrice(cartData);
 
-  if (!cartData.length) {
+  if (!cartData.length && step < 4) {
     return (
       <SiteContainer>
         <section className={styles.empty__wrapper}>
@@ -44,6 +45,10 @@ function Order() {
     );
   }
 
+  if (step === 4) {
+    return <SuccessPurchase />;
+  }
+
   return (
     <CartContainer>
       <TextItem as="h2" className={styles.header}>
@@ -52,7 +57,7 @@ function Order() {
       <BreadCrumbs step={step} setStep={setStep} formData={formData} />
       {step > 1 ? (
         step > 2 ? (
-          <LocationData />
+          <LocationData setFormData={setFormData} setStep={setStep} />
         ) : (
           <PurchaseInfo
             formData={formData}
