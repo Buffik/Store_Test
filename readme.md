@@ -22,4 +22,4 @@
 
 запуск проекта: npm run dev
 
-деплой на Netlify -
+деплой на Netlify - https://main--glittery-puffpuff-d092b2.netlify.app/
